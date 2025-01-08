@@ -2,35 +2,36 @@ package lab6
 
 import "fmt"
 
-type Plane struct {
+type Rabbit struct {
 	Name  string
+	Age   int
 	Color string
-	Speed int
 }
 
-func NewPlane(name, color string, speed int) *Plane {
-	plane := new(Plane)
-	plane.Name = name
-	plane.Color = color
-	plane.Speed = speed
-	return plane
+func NewRabbit(name string, age int, color string) *Rabbit {
+	rabbit := new(Rabbit)
+	rabbit.Name = name
+	rabbit.Age = age
+	rabbit.Color = color
+	return rabbit
 }
 
-func (p Plane) GetName() string {
-	return p.Name
+func (r Rabbit) GetName() string {
+	return r.Name
 }
 
-func (p Plane) GetColor() string {
-	return p.Color
+func (r *Rabbit) SetAge(age int) {
+	r.Age = age
 }
 
-func (p *Plane) SetSpeed(speed int) {
-	p.Speed = speed
+func (r Rabbit) GetAge() int {
+	return r.Age
 }
 
 func Lab6() {
-	boeing := NewPlane("Boeing", "Белый", 120)
-	boeing.SetSpeed(150)
-	fmt.Println(boeing.GetName())
-	fmt.Println(boeing.GetColor())
+	rabbit := NewRabbit("Шнафи", 3, "Чёрный")
+	fmt.Println(rabbit.GetAge())
+	fmt.Println(rabbit.GetName())
+	rabbit.SetAge(4)
+	fmt.Println(rabbit.GetAge())
 }
